@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAC Talento – Soluciones de Talento Humano</title>
+  <meta name="description" content="MAC Talento: grupo de profesionales que diseñan soluciones a la medida para el fortalecimiento del talento humano y el crecimiento organizacional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #202A4F; --navy2: #141c38; --cream: #FBEFF0;
+      --rose: #C47481; --sand: #9A795C; --white: #ffffff;
+      --text: #444; --muted: #777;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); font-weight: 400; font-size: 15px; color: var(--text); background: var(--white); }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+    .section-label { color: var(--rose); font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 700; margin-bottom: 8px; }
+    .section-title { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.2; }
+    .section-title-light { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .divider-accent { width: 40px; height: 2px; background: var(--rose); border-radius: 2px; margin: 12px 0 28px; }
+    .section-sub { color: var(--muted); font-size: 15px; font-weight: 400; line-height: 1.75; max-width: 600px; margin-bottom: 36px; text-align: justify; }
+    .section-sub-light { color: rgba(255,255,255,0.65); font-size: 15px; font-weight: 400; line-height: 1.75; max-width: 520px; margin-bottom: 32px; text-align: justify; }
+
+    .btn-primary { background: var(--rose); color: #fff; border: none; padding: 13px 28px; border-radius: 5px; font-size: 14px; font-weight: 700; font-family: var(--font); cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: #b5636f; transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); padding: 13px 28px; border-radius: 5px; font-size: 14px; font-weight: 400; font-family: var(--font); cursor: pointer; text-decoration: none; display: inline-block; margin-left: 12px; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+
+    /* HEADER */
+    header { background: var(--navy); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: 0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--rose); }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav ul a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 400; transition: color 0.2s; }
+    nav ul a:hover { color: var(--rose); }
+    .nav-cta { background: var(--rose) !important; color: #fff !important; padding: 7px 16px !important; border-radius: 4px; font-weight: 700 !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+    .mobile-nav { display: none; flex-direction: column; background: var(--navy); padding: 16px 32px 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .mobile-nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 400; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: block; }
+    .mobile-nav a:hover { color: var(--rose); }
+    .mobile-nav.open { display: flex; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 540px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-video-bg { position: absolute; inset: 0; }
+    .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(32,42,79,0.92) 0%, rgba(32,42,79,0.75) 100%); }
+    .hero-inner { position: relative; z-index: 2; text-align: center; max-width: 720px; padding: 80px 32px; }
+    .hero-eyebrow { color: var(--rose); font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; }
+    .hero-h1 { color: #fff; font-size: clamp(28px, 4vw, 48px); font-weight: 700; line-height: 1.2; margin-bottom: 22px; }
+    .hero-h1 em { color: var(--rose); font-style: normal; }
+    .hero-p { color: rgba(255,255,255,0.72); font-size: 16px; font-weight: 400; line-height: 1.8; margin-bottom: 34px; text-align: justify; }
+    .hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* QUIENES + VALORES */
+    .quienes { padding: 80px 0; }
+    .combined-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .qtext p { font-size: 15px; font-weight: 400; line-height: 1.8; color: var(--text); margin-bottom: 16px; text-align: justify; }
+    .qtext p.lead { font-size: 17px; color: #333; }
+    .valores-col-label { color: var(--rose); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 16px; }
+    .valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .valor-card { background: var(--cream); border: 1px solid rgba(154,121,92,0.15); border-radius: 10px; padding: 20px 16px; transition: transform 0.2s, box-shadow 0.2s; }
+    .valor-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(32,42,79,0.09); }
+    .valor-icon { width: 38px; height: 38px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: var(--rose); font-size: 20px; }
+    .valor-title { color: var(--navy); font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+    .valor-desc { color: var(--muted); font-size: 13px; font-weight: 400; line-height: 1.65; text-align: justify; }
+
+    /* SERVICIOS */
+    .servicios { padding: 80px 0; background: var(--cream); }
+    .servicios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .serv-full { grid-column: 1 / -1; }
+    .serv-card { background: var(--navy); border-radius: 10px; padding: 30px 26px; position: relative; overflow: hidden; transition: transform 0.2s; }
+    .serv-card:hover { transform: translateY(-3px); }
+    .serv-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--rose); }
+    .serv-num { color: var(--rose); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 12px; }
+    .serv-title { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .serv-desc { color: rgba(255,255,255,0.62); font-size: 14px; font-weight: 400; line-height: 1.75; text-align: justify; }
+    .serv-tags { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .serv-tag { display: inline-block; background: rgba(196,116,129,0.18); color: #d9919e; font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px; border: 1px solid rgba(196,116,129,0.3); }
+    .serv-icon { position: absolute; bottom: 20px; right: 22px; font-size: 44px; color: rgba(255,255,255,0.04); }
+
+    /* CLIENTES */
+    .clientes { padding: 80px 0; }
+    .clientes-logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .cli-box {
+      background: #fff;
+      border: 1px solid rgba(154,121,92,0.15);
+      border-radius: 10px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .cli-box:hover { border-color: var(--rose); transform: scale(1.03); box-shadow: 0 6px 20px rgba(32,42,79,0.08); }
+    .cli-box img { max-width: 100%; max-height: 88px; object-fit: contain; }
+
+    /* CONTACTO */
+    .contacto { padding: 80px 0; background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .c-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+    .c-icon { width: 42px; height: 42px; background: var(--rose); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; flex-shrink: 0; }
+    .c-label { color: rgba(255,255,255,0.45); font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
+    .c-val { color: #fff; font-size: 14px; font-weight: 400; margin-top: 3px; }
+    .c-social { display: flex; gap: 10px; margin-top: 28px; }
+    .soc-btn { width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.65); font-size: 20px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .soc-btn:hover { border-color: var(--rose); color: var(--rose); }
+    .form-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 32px 28px; }
+    .f-group { margin-bottom: 16px; }
+    .f-label { display: block; color: rgba(255,255,255,0.55); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 6px; }
+    .f-input, .f-ta, .f-select { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 6px; padding: 11px 14px; color: rgba(255,255,255,0.88); font-size: 14px; font-family: var(--font); font-weight: 400; outline: none; transition: border-color 0.2s; }
+    .f-input:focus, .f-ta:focus, .f-select:focus { border-color: var(--rose); }
+    .f-input::placeholder, .f-ta::placeholder { color: rgba(255,255,255,0.28); }
+    .f-ta { min-height: 100px; resize: vertical; }
+    .f-select option { background: var(--navy); color: #fff; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .f-submit { background: var(--rose); color: #fff; border: none; padding: 13px 24px; border-radius: 6px; font-size: 14px; font-weight: 700; font-family: var(--font); cursor: pointer; width: 100%; margin-top: 6px; transition: background 0.2s, transform 0.15s; }
+    .f-submit:hover { background: #b5636f; transform: translateY(-1px); }
+    .form-success { display: none; text-align: center; padding: 24px 16px; }
+    .form-success i { font-size: 48px; color: var(--rose); display: block; margin-bottom: 12px; }
+
+    /* FOOTER */
+    footer { background: var(--navy2); padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .f-logo { color: rgba(255,255,255,0.8); font-size: 15px; font-weight: 700; }
+    .f-logo span { color: var(--rose); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 400; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--rose); }
+    .f-copy { color: rgba(255,255,255,0.3); font-size: 11px; font-weight: 400; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      .combined-grid { grid-template-columns: 1fr; }
+      .valores-grid { grid-template-columns: 1fr; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .serv-full { grid-column: auto; }
+      .clientes-logos { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .f-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-outline { margin-left: 0; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 18px; }
+      .clientes-logos { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo">MAC <span>Talento</span></a>
+      <nav aria-label="Menú principal">
+        <ul>
+          <li><a href="#quienes">Quiénes somos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#quienes">Quiénes somos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contacto">Contáctanos</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-video-bg" aria-hidden="true">
+    <video autoplay muted loop playsinline
+      poster="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&w=1200">
+      <source src="https://videos.pexels.com/video-files/3191430/3191430-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Soluciones de talento humano</div>
+    <h1 class="hero-h1">Fortalecemos el <em>talento humano</em><br>que impulsa tu empresa</h1>
+    <p class="hero-p">Un grupo de profesionales que trabaja de manera colaborativa para crear soluciones a la medida, que contribuyan al fortalecimiento del talento humano, al crecimiento y rentabilidad de las empresas.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-primary">Hablemos de tu proyecto</a>
+      <a href="#servicios" class="btn-outline">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<section class="quienes" id="quienes">
+  <div class="container">
+    <div class="section-label">Nuestra esencia</div>
+    <h2 class="section-title">Quiénes somos</h2>
+    <div class="divider-accent"></div>
+    <div class="combined-grid">
+      <div class="qtext">
+        <p class="lead">MAC Talento es un grupo de profesionales quienes trabajamos de manera colaborativa para crear soluciones a la medida, que contribuyan al fortalecimiento del talento humano, al crecimiento y rentabilidad de las empresas.</p>
+        <p>Creemos que el talento humano es el activo más valioso de cualquier organización. Por eso diseñamos estrategias que conectan el propósito corporativo con el potencial de las personas, generando impacto real y sostenible en cada cliente que acompañamos.</p>
+        <p>Nuestro equipo combina experiencia en gestión humana, consultoría organizacional, formación y desarrollo para estar presentes en cada etapa del crecimiento de tu empresa.</p>
+      </div>
+      <div>
+        <div class="valores-col-label">Valores</div>
+        <div class="valores-grid">
+          <div class="valor-card">
+            <div class="valor-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+            <div class="valor-title">Compromiso</div>
+            <p class="valor-desc">Asumimos los retos de cada cliente como propios, acompañando cada paso del proceso con dedicación.</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-icon"><i class="ti ti-bulb" aria-hidden="true"></i></div>
+            <div class="valor-title">Innovación</div>
+            <p class="valor-desc">Diseñamos soluciones creativas y pertinentes que responden a los desafíos de cada organización.</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-icon"><i class="ti ti-handshake" aria-hidden="true"></i></div>
+            <div class="valor-title">Ética</div>
+            <p class="valor-desc">Actuamos con transparencia e integridad en cada interacción, construyendo relaciones de confianza.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="container">
+    <div class="section-label">Lo que hacemos</div>
+    <h2 class="section-title">Servicios</h2>
+    <div class="divider-accent"></div>
+    <p class="section-sub">Soluciones diseñadas a la medida de tu organización, desde el diagnóstico hasta la implementación y el acompañamiento continuo.</p>
+    <div class="servicios-grid">
+      <div class="serv-card">
+        <div class="serv-num">01</div>
+        <div class="serv-title">Atracción y Selección</div>
+        <p class="serv-desc">Identificamos y seleccionamos al mejor talento alineado con tu cultura y propósito corporativo, garantizando fit cultural y técnico en cada proceso.</p>
+        <i class="ti ti-user-search serv-icon" aria-hidden="true"></i>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">02</div>
+        <div class="serv-title">Formación</div>
+        <p class="serv-desc">Diseñamos e implementamos programas de capacitación y formación a la medida, enfocados en el desarrollo de competencias clave para el negocio.</p>
+        <div class="serv-tags">
+          <span class="serv-tag">Escuela de Liderazgo</span>
+          <span class="serv-tag">Servicio al Cliente</span>
+        </div>
+        <i class="ti ti-school serv-icon" aria-hidden="true"></i>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">03</div>
+        <div class="serv-title">Desarrollo</div>
+        <p class="serv-desc">Potenciamos el talento humano de tu organización mediante el diseño de planes de carrera, evaluación del desempeño, planes de desarrollo individual y mapeo de potencial.</p>
+        <i class="ti ti-rocket serv-icon" aria-hidden="true"></i>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">04</div>
+        <div class="serv-title">Cultura Organizacional</div>
+        <p class="serv-desc">Alineamos los valores corporativos con las conductas diarias de los equipos, transformando el clima organizacional en una ventaja competitiva que sostiene el crecimiento de tu empresa.</p>
+        <i class="ti ti-building-community serv-icon" aria-hidden="true"></i>
+      </div>
+      <div class="serv-card serv-full">
+        <div class="serv-num">05</div>
+        <div class="serv-title">Bienestar</div>
+        <p class="serv-desc">Fomentamos un entorno de trabajo motivador que impulsa el compromiso, reduce el ausentismo y fortalece el bienestar colectivo de tu organización, creando equipos más saludables, productivos y comprometidos.</p>
+        <i class="ti ti-heart serv-icon" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clientes" id="clientes">
+  <div class="container">
+    <div class="section-label">Quienes confían en nosotros</div>
+    <h2 class="section-title">Nuestros clientes</h2>
+    <div class="divider-accent"></div>
+    <div class="clientes-logos">
+      <div class="cli-box">
+        <img src="alma-bela.jpg" alt="Alma Bela Salón">
+      </div>
+      <div class="cli-box">
+        <img src="effi.jpg" alt="Effi Energía Eficiente">
+      </div>
+      <div class="cli-box">
+        <img src="am.jpg" alt="AM">
+      </div>
+      <div class="cli-box">
+        <img src="holding-services.png" alt="Holding Services Colombia">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="section-label" style="color:var(--rose)">Hablemos</div>
+    <h2 class="section-title-light">Contáctanos</h2>
+    <div class="divider-accent"></div>
+    <div class="contact-grid">
+      <div>
+        <p class="section-sub-light">¿Tienes un reto de talento humano? Cuéntanos. Diseñamos la solución a la medida que tu organización necesita.</p>
+        <div class="c-item">
+          <div class="c-icon"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></div>
+          <div><div class="c-label">Teléfono / WhatsApp</div><div class="c-val">+57 314 713 6977</div></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+          <div><div class="c-label">Correo electrónico</div><div class="c-val">maria.africanoconsultora@gmail.com</div></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="ti ti-brand-instagram" aria-hidden="true"></i></div>
+          <div><div class="c-label">Instagram</div><div class="c-val">@MAC_talento</div></div>
+        </div>
+        <div class="c-social">
+          <a href="https://instagram.com/MAC_talento" class="soc-btn" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/573147136977" class="soc-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+          <a href="mailto:maria.africanoconsultora@gmail.com" class="soc-btn" aria-label="Correo"><i class="ti ti-mail" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <form id="contactForm" novalidate>
+            <div class="f-row">
+              <div class="f-group"><label class="f-label" for="nombre">Nombre *</label><input class="f-input" id="nombre" type="text" placeholder="Tu nombre" required></div>
+              <div class="f-group"><label class="f-label" for="empresa">Empresa *</label><input class="f-input" id="empresa" type="text" placeholder="Tu empresa" required></div>
+            </div>
+            <div class="f-group"><label class="f-label" for="email">Correo electrónico *</label><input class="f-input" id="email" type="email" placeholder="tu@empresa.com" required></div>
+            <div class="f-group"><label class="f-label" for="telefono">Teléfono / WhatsApp</label><input class="f-input" id="telefono" type="tel" placeholder="+57 300 000 0000"></div>
+            <div class="f-group">
+              <label class="f-label" for="servicio">Servicio de interés</label>
+              <select class="f-select" id="servicio">
+                <option value="">Selecciona un servicio...</option>
+                <option>Atracción y Selección</option>
+                <option>Formación</option>
+                <option>Desarrollo</option>
+                <option>Cultura Organizacional</option>
+                <option>Bienestar</option>
+                <option>Otro / No sé aún</option>
+              </select>
+            </div>
+            <div class="f-group"><label class="f-label" for="mensaje">¿En qué podemos ayudarte? *</label><textarea class="f-ta" id="mensaje" placeholder="Cuéntanos brevemente tu necesidad o reto..." required></textarea></div>
+            <button type="submit" class="f-submit">Enviar mensaje &nbsp;<i class="ti ti-send" aria-hidden="true"></i></button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <i class="ti ti-circle-check" aria-hidden="true"></i>
+            <p style="color:#fff;font-size:17px;font-weight:700;margin-bottom:8px;">¡Mensaje enviado!</p>
+            <p style="color:rgba(255,255,255,0.6);font-size:14px;">Nos pondremos en contacto contigo muy pronto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="f-logo">MAC <span>Talento</span></div>
+      <div class="footer-links">
+        <a href="#quienes">Quiénes somos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="f-copy">© 2025 MAC Talento · Todos los derechos reservados</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileNav');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) mob.classList.remove('open'); });
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul a');
+  window.addEventListener('scroll', () => {
+    let curr = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) curr = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = '';
+      if (a.getAttribute('href') === '#' + curr) a.style.color = 'var(--rose)';
+    });
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const n = document.getElementById('nombre').value.trim();
+    const em = document.getElementById('email').value.trim();
+    const msg = document.getElementById('mensaje').value.trim();
+    const emp = document.getElementById('empresa').value.trim();
+    if (!n || !em || !msg || !emp) { alert('Por favor completa todos los campos obligatorios (*).'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { alert('Por favor ingresa un correo electrónico válido.'); return; }
+    const btn = this.querySelector('.f-submit');
+    btn.textContent = 'Enviando…'; btn.disabled = true;
+    setTimeout(() => { this.style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; }, 1200);
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.valor-card, .serv-card, .cli-box').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
